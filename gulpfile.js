@@ -1,4 +1,4 @@
-const {series, watch, src, dest} = require('gulp');
+const { series, watch, src, dest } = require('gulp');
 const pump = require('pump');
 
 // gulp plugins and utils
@@ -38,23 +38,23 @@ function css(done) {
         easyimport,
         customProperties,
         colorFunction(),
-        autoprefixer({browsers: ['last 2 versions']}),
+        autoprefixer({ browsers: ['last 2 versions'] }),
         cssnano()
     ];
 
     pump([
-        src('theme/assets/css/*.css', {sourcemaps: true}),
+        src('theme/assets/css/*.css', { sourcemaps: true }),
         postcss(processors),
-        dest(outputPath + '/assets/', {sourcemaps: '.'}),
+        dest(outputPath + '/assets/', { sourcemaps: '.' }),
         livereload()
     ], handleError(done));
 }
 
 function js(done) {
     pump([
-        src('theme/assets/js/*.js', {sourcemaps: true}),
+        src('theme/assets/js/*.js', { sourcemaps: true }),
         uglify(),
-        dest(outputPath + '/assets/', {sourcemaps: '.'}),
+        dest(outputPath + '/assets/', { sourcemaps: '.' }),
         livereload()
     ], handleError(done));
 }

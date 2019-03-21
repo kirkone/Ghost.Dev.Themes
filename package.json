@@ -7,10 +7,8 @@
         "start": "concurrently \"npm:dev\" \"npm:ghost:start\"",
         "dev": "gulp",
         "zip": "gulp zip",
-        "test": "gscan .",
         "pretest": "gulp build",
-        "preship": "yarn test",
-        "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; fi",
+        "test": "gscan ./ghost/content/themes/template",
         "postinstall": "npm run ghost:copycontent",
         "ghost:copycontent": "cd ghost && node copycontent.js",
         "ghost:start": "cd ghost && node ghost.js"

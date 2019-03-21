@@ -1,5 +1,14 @@
 {
     "version": "0.2.0",
+    "compounds": [
+        {
+            "name": "Dev Environment",
+            "configurations": [
+                "Ghost",
+                "Theme"
+            ]
+        }
+    ],
     "configurations": [
         {
             "type": "node",
@@ -9,7 +18,8 @@
             "runtimeArgs": [
                 "run-script",
                 "ghost:start"
-            ]
+            ],
+            "noDebug": true
         },
         {
             "type": "node",
@@ -19,13 +29,8 @@
             "runtimeArgs": [
                 "run-script",
                 "dev"
-            ]
+            ],
+            "noDebug": true
         }
-    ],
-    "compounds": [
-	{
-	    "name": "Dev Environment",
-	    "configurations": ["Ghost", "Theme"]
-	}
-     ]
+    ]
 }
