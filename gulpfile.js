@@ -107,6 +107,7 @@ function zipper(done) {
 }
 
 const watcher = () => {
+    livereload.listen();
     watch('theme/assets/css/**', css);
     watch('theme/assets/js/*.js', js);
     watch('theme/**/*.hbs', hbs);

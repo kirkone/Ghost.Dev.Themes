@@ -43,4 +43,10 @@ This will run the gscan tool form ghost and outputs the results.
 
 This will create a zip file for your theme here `/zip/<themename>.zip`. this file can be uploaded to a Ghost Blog on the admin panel.
 
+## Livereload
 
+If you want to use live reload you can either use the (livereload browser extension)[http://livereload.com/extensions/] or inject the following tag in the ghost settings under "Code injection":
+
+```
+<script src="http://localhost:35729/livereload.js?snipver=1"></script>
+```
