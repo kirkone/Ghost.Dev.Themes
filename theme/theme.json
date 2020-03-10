@@ -3,8 +3,8 @@
     "description": "The default personal blogging theme for Ghost. Beautiful, minimal and responsive.",
     "version": "0.1.0",
     "engines": {
-        "ghost": ">=2.0.0",
-        "ghost-api": "v2"
+        "ghost": ">=3.0.0",
+        "ghost-api": "v3"
     },
     "license": "MIT",
     "author": {

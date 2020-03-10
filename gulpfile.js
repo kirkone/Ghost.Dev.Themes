@@ -2,22 +2,23 @@ const { series, watch, src, dest } = require('gulp');
 const pump = require('pump');
 
 // gulp plugins and utils
-var livereload = require('gulp-livereload');
-var postcss = require('gulp-postcss');
-var zip = require('gulp-zip');
-var uglify = require('gulp-uglify');
-var beeper = require('beeper');
-var rename = require('gulp-rename');
+const livereload = require('gulp-livereload');
+const postcss = require('gulp-postcss');
+const zip = require('gulp-zip');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const beeper = require('beeper');
+const rename = require('gulp-rename');
 
 // postcss plugins
-var autoprefixer = require('autoprefixer');
-var colorFunction = require('postcss-color-function');
-var cssnano = require('cssnano');
-var customProperties = require('postcss-custom-properties');
-var easyimport = require('postcss-easy-import');
+const autoprefixer = require('autoprefixer');
+const colorFunction = require('postcss-color-function');
+const cssnano = require('cssnano');
+const customProperties = require('postcss-custom-properties');
+const easyimport = require('postcss-easy-import');
 
-var theme = require('./theme/theme.json');
-var outputPath = 'ghost/content/themes/' + theme.name;
+const theme = require('./theme/theme.json');
+const outputPath = 'ghost/content/themes/' + theme.name;
 
 function serve(done) {
     livereload.listen();
@@ -52,7 +53,12 @@ function css(done) {
 
 function js(done) {
     pump([
-        src('theme/assets/js/*.js', { sourcemaps: true }),
+        src([
+            // pull in lib files first so our own code can depend on it
+            'theme/assets/js/lib/*.js',
+            'theme/assets/js/*.js'
+        ], {sourcemaps: true}),
+        concat('theme.js'),
         uglify(),
         dest(outputPath + '/assets/', { sourcemaps: '.' }),
         livereload()
