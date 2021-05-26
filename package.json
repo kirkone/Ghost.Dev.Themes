@@ -41,7 +41,7 @@
         "gulp-rename": "2.0.0",
         "fs-extra": "8.1.0",
         "concurrently": "5.1.0",
-        "browserslist": "^4.9.1",
+        "browserslist": "^4.16.5",
         "caniuse-lite": "^1.0.30001033"
     },
     "dependencies": {}
