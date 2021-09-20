@@ -37,7 +37,7 @@
         "postcss-custom-properties": "9.1.1",
         "postcss-easy-import": "3.0.0",
         "pump": "3.0.0",
-        "ghost": "3.11.0",
+        "ghost": "4.15.0",
         "gulp-rename": "2.0.0",
         "fs-extra": "8.1.0",
         "concurrently": "5.1.0",
